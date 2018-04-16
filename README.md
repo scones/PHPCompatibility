@@ -61,10 +61,9 @@ Installation in a Composer project (method 1)
 * Add the following lines to the `require-dev` section of your `composer.json` file.
     ```json
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.2 || ^3.0.2",
-        "wimg/php-compatibility": "*"
-    },
-    "prefer-stable" : true
+        "squizlabs/php_codesniffer": "*@stable",
+        "wimg/php-compatibility": "*@stable"
+    }
     ```
 * Next, PHP CodeSniffer has to be informed of the location of the standard.
     - If PHPCompatibility is the **_only_** external PHP CodeSniffer standard you use, you can add the following to your `composer.json` file to automatically run the necessary command:
@@ -85,7 +84,7 @@ Installation in a Composer project (method 1)
         ```xml
         <config name="installed_paths" value="vendor/wimg/php-compatibility" />
         ```
-* Run `composer update --lock` to install both PHP CodeSniffer, the PHPCompatibility coding standard and - optionally - the Composer plugin.
+* Run `composer update squizlabs/php_codesniffer wimg/php-compatibility --lock` to install both PHP CodeSniffer, the PHPCompatibility coding standard and - optionally - the Composer plugin.
 * Verify that the PHPCompatibility standard is registered correctly by running `./vendor/bin/phpcs -i` on the command line. PHPCompatibility should be listed as one of the available standards.
 * Now you can use the following command to inspect your code:
     ```bash
